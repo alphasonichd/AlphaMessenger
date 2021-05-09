@@ -7,4 +7,8 @@ target 'AlphaMessenger' do
 
   # Pods for AlphaMessenger
 
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
 end
