@@ -7,9 +7,10 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
 //    import UIKit
 //    import Firebase
@@ -29,6 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
 
@@ -45,7 +50,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
+      -> Bool {
+      return GIDSignIn.sharedInstance().handle(url)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        guard error == nil else {
+            if let error = error {
+                print("Error sign in with Google: \(error)")
+            }
+            return
+        }
+        
+//        print("Did sign in with Google: \(user)")
+        
+        guard let email = user.profile.email,
+              let firstName = user.profile.givenName,
+              let lastName = user.profile.familyName else {
+            return
+        }
+        
+        DatabaseManager.shared.userExists(with: email) { exists in
+            if !exists {
+                //insert in database
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                    lastName: lastName,
+                                                                    emailAddress: email))
+            }
+        }
+        
+        
+        guard let authentication = user.authentication else {
+            print("Missing auth object off of Google User.")
+            return
+        }
+          let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                         accessToken: authentication.accessToken)
+        
+        FirebaseAuth.Auth.auth().signIn(with: credential) { authResult, error in
+            guard authResult != nil, error == nil else {
+                print("Failed to log in with Google credentials")
+                return
+            }
+            print("Succesfully signed in with Google credentials")
+            NotificationCenter.default.post(name: .didLogInNotification, object: nil)
+        }
+}
+    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Google user was disconnected.")
+    }
 }
 
