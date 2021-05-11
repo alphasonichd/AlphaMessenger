@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0A59D9264B23780059DD0D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A59D8264B23780059DD0D /* ChatViewController.swift */; };
 		8B0B64232641CE3D00E04208 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B64222641CE3D00E04208 /* Extensions.swift */; };
 		8B17A1532648132100498020 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B17A1522648132000498020 /* GoogleService-Info.plist */; };
 		8BE53F51264064C40010387B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE53F50264064C40010387B /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		0C742FA3F7F5672899341829 /* Pods-AlphaMessenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaMessenger.debug.xcconfig"; path = "Target Support Files/Pods-AlphaMessenger/Pods-AlphaMessenger.debug.xcconfig"; sourceTree = "<group>"; };
 		7541CA6382F84C0899BA57D0 /* Pods-AlphaMessenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaMessenger.release.xcconfig"; path = "Target Support Files/Pods-AlphaMessenger/Pods-AlphaMessenger.release.xcconfig"; sourceTree = "<group>"; };
+		8B0A59D8264B23780059DD0D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8B0B64222641CE3D00E04208 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B17A1522648132000498020 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8BE53F4D264064C40010387B /* AlphaMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				8BE53F70264083C80010387B /* VideoPlayerViewController.swift */,
 				8BE53F72264083F50010387B /* NewConversationViewController.swift */,
 				8BE53F74264084140010387B /* ProfileViewController.swift */,
+				8B0A59D8264B23780059DD0D /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				8BE53F51264064C40010387B /* AppDelegate.swift in Sources */,
 				8BE53F75264084140010387B /* ProfileViewController.swift in Sources */,
 				8BE53F53264064C40010387B /* SceneDelegate.swift in Sources */,
+				8B0A59D9264B23780059DD0D /* ChatViewController.swift in Sources */,
 				8BE53F6F264083B40010387B /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
