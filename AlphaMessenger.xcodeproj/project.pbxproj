@@ -10,6 +10,7 @@
 		8B0A59D9264B23780059DD0D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0A59D8264B23780059DD0D /* ChatViewController.swift */; };
 		8B0B64232641CE3D00E04208 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0B64222641CE3D00E04208 /* Extensions.swift */; };
 		8B17A1532648132100498020 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B17A1522648132000498020 /* GoogleService-Info.plist */; };
+		8B6F7724264DA69D00DC2A4C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6F7723264DA69D00DC2A4C /* StorageManager.swift */; };
 		8BE53F51264064C40010387B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE53F50264064C40010387B /* AppDelegate.swift */; };
 		8BE53F53264064C40010387B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE53F52264064C40010387B /* SceneDelegate.swift */; };
 		8BE53F55264064C40010387B /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE53F54264064C40010387B /* ConversationsViewController.swift */; };
@@ -32,6 +33,7 @@
 		8B0A59D8264B23780059DD0D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		8B0B64222641CE3D00E04208 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B17A1522648132000498020 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B6F7723264DA69D00DC2A4C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8BE53F4D264064C40010387B /* AlphaMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE53F50264064C40010387B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BE53F52264064C40010387B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				8BE53F52264064C40010387B /* SceneDelegate.swift */,
 				8B0B64222641CE3D00E04208 /* Extensions.swift */,
 				8BEC4E0B26491AE400F67458 /* DatabaseManager.swift */,
+				8B6F7723264DA69D00DC2A4C /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				8BE53F53264064C40010387B /* SceneDelegate.swift in Sources */,
 				8B0A59D9264B23780059DD0D /* ChatViewController.swift in Sources */,
 				8BE53F6F264083B40010387B /* PhotoViewerViewController.swift in Sources */,
+				8B6F7724264DA69D00DC2A4C /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
