@@ -84,15 +84,6 @@ extension DatabaseManager {
                         completion(true)
                     }
                 }
-                /*
-          users=>       [
-                    [
-                        "name":
-                        "safe_email":
-                    ]
-                 ]
-                 
-                 */
             }
             
         }
@@ -112,6 +103,32 @@ extension DatabaseManager {
         case failedToFetch
     }
 }
+
+//MARK: - Conversation Management
+
+extension DatabaseManager {
+    
+    /// Creates a new conversation with target user with email and first message sent
+    public func createNewConversation(with otherUserEmail: String, firstMessage: Message, completion: @escaping (Bool) -> Void) {
+        
+    }
+    
+    /// Fetching and returns all conversations for the user with passed in email
+    public func getAllConversations(for email: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+    }
+    
+    /// Gets all messages for a given conversation
+    public func getAllMessagesForConversation(with id: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+    }
+    
+    /// Sends a message with target conversation and message
+    public func sendMessage(to conversation: String, message: Message, completion: @escaping (Bool) -> Void) {
+        
+    }
+}
+
 
 struct ChatAppUser {
     let firstName: String
