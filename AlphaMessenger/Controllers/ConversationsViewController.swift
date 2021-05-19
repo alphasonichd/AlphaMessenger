@@ -13,11 +13,13 @@ class ConversationsViewController: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
+    private var conversations = [Conversation]()
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.isHidden = true
-        table.register(UITableViewCell.self,
-                       forCellReuseIdentifier: "cell")
+        table.register(ConversationsTableViewCell.self,
+                       forCellReuseIdentifier: ConversationsTableViewCell.identifier)
         return table
     }()
     
