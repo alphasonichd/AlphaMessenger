@@ -101,24 +101,41 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         
         print("Sending : \(text)")
         //Send Message
+        let message = Message(sender: selfSender,
+                              messageId: messageId,
+                              sentDate: Date(),
+                              kind: .text(text))
         if isNewConversation {
             // create in database
-            let message = Message(sender: selfSender,
-                                  messageId: messageId,
-                                  sentDate: Date(),
-                                  kind: .text(text))
-            DatabaseManager.shared.createNewConversation(with: otherUserEmail, name: self.title ?? "User", firstMessage: message) { [weak self] success in
+            DatabaseManager.shared.createNewConversation(with: otherUserEmail,
+                                                         name: self.title ?? "User",
+                                                         firstMessage: message) { [weak self] success in
                 guard let strongSelf = self else {
                     return
                 }
                 if success {
                     print("MESSAGE SENT")
+                    strongSelf.isNewConversation = false
                 }
                 else {
                     print("MESSAGE FAILED")
                 }
             }
         } else {
+            guard let conversationId = conversationId,
+                  let name = self.title else {
+                return
+            }
+            DatabaseManager.shared.sendMessage(to: conversationId,
+                                               otherUserEmail: otherUserEmail,
+                                               name: name,
+                                               newMessage: message) { success in
+                if success {
+                    print("Message sent")
+                } else {
+                    print("Failed to sent")
+                }
+            }
             // append to existing conversation
         }
     }
